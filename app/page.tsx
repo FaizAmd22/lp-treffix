@@ -1,113 +1,221 @@
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { H2 } from "@/components/ui/h2";
+import { P } from "@/components/ui/p";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
+type ServiceDetailProps = {
+  image: string;
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+  isReverse?: boolean;
+};
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
+  const services = [
+    {
+      icon: "icons/user.svg",
+      title: "Pemantauan Keryawan",
+      description: (
+        <p className="text-center">
+          Memantau dengan kecerdasan buatan dengan{" "}
+          <span className="italic">deep learning</span>
+          untuk dashcam atau CCTV
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      ),
+    },
+    {
+      icon: "icons/box.svg",
+      title: "Pemantauan Penyimpanan Dingin",
+      description: (
+        <p className="text-center">
+          Monitor kondisi dan keamanan Penyimpanan dingin, pada gengaman anda.
+        </p>
+      ),
+    },
+    {
+      icon: "icons/car.svg",
+      title: "Pemantauan Kendaraan",
+      description: (
+        <p className="text-center">
+          Lacak pergerakan kendaraan Anda secara real-time.
+        </p>
+      ),
+    },
+  ];
+
+  const servicesDetails: ServiceDetailProps[] = [
+    {
+      image: "/images/service_1.png",
+      icon: "icons/user.svg",
+      title: "Tingkatkan Produktivitas dan Keamaanan Karyawan",
+      description:
+        "Mengamankan Lingkungan Kerja dan Meningkatkan Efisiensi dengan pemantauaan karyawan berbasis kecerdasan buatan (AI).",
+      features: [
+        "Pelacakan & Penghitungan Orang",
+        "Pengenal Wajah (Face Detection)",
+        "Deteksi dan Pelacakan Objek",
+        "Deteksi APD (Safety Wear Detection)",
+      ],
+    },
+    {
+      image: "/images/service_2.png",
+      icon: "icons/box.svg",
+      title: "Optimalkan Efisiensi dan Kurangi Biaya Operasional",
+      description:
+        "Pengawasan Penyimpanan dingin yang Terintegrasi untuk Memastikan Efisiensi Maksimal dan Mengurasi biaya operasional. ",
+      features: [
+        "Mematau suhu secara Realtime",
+        "Melihat status pintu ",
+        "Mengurangi biaya operasional (listrik)",
+      ],
+      isReverse: true,
+    },
+    {
+      image: "/images/service_3.png",
+      icon: "icons/car.svg",
+      title: "Nikmati Pengelolaan Armada yang Lebih Efisien",
+      description:
+        "Dapatkan visibilitas dan kontrol penuh atas armada Anda dengan sistem pelacakan GPS kami yang canggih. ",
+      features: [
+        "Menganalisa Perilaku Pengemudi",
+        "Dapatkan Peringatan dan Notifikasi Instan",
+        "Mengelola Armada Anda Secara Efisien",
+      ],
+    },
+  ];
+
+  return (
+    <div>
+      <div id="hero" className="flex min-h-[calc(100vh_-_64px)] flex-row">
+        <div className="flex w-1/2 flex-col justify-center gap-5">
+          <h1 className="text-5xl font-bold text-slate-950">
+            Optimalkan Bisnis Anda dengan Aset Monitoring Berbasis AI
+          </h1>
+          <P className="text-lg text-muted-foreground">
+            Mengoptimalkan kinerja bisnis Anda dengan pemamntauan yang akurat
+            dan efisien
+          </P>
+          <div className="flex flex-row gap-2">
+            <Button variant="default">Get Started</Button>
+            <Button variant="outline">Demo</Button>
+          </div>
+        </div>
+        <div className="flex w-1/2 items-center justify-center">
+          <Image
+            src="/hero.svg"
+            alt="hero"
+            width={800}
+            height={800}
+            className="ml-16"
+          />
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div id="service" className="flex h-[60vh] items-start">
+        <div className="flex flex-col">
+          <H2 className="mb-5 text-center">Layanan Kami</H2>
+          <P className="text-center">
+            Kami menyediakan layanan pemantauan yang inovatif untuk memantau
+            orang, kendaraan, dan gudang dengan menggunakan teknologi IoT.
+            Dengan solusi kami, Anda dapat mengoptimalkan operasional dan
+            meningkatkan keamanan.
+          </P>
+          <div className="mt-10 flex flex-row gap-5">
+            {services.map((service, index) => (
+              <div key={index} className="flex w-1/3 flex-col items-center">
+                <Card className="p-1">
+                  <Image src={service.icon} alt="icon" width={25} height={25} />
+                </Card>
+                <P className="font-bold">{service.title}</P>
+                {service.description}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div id="services-details" className="mb-40 flex flex-col gap-20">
+        {servicesDetails.map((service, index) => (
+          <ServiceDetail key={index} {...service} />
+        ))}
       </div>
-    </main>
+      <div id="reviews" className="mb-40">
+        <hr />
+        <div className="mt-10 flex flex-row items-center">
+          <div className="flex w-2/3 flex-col gap-2">
+            <p>stars</p>
+            <H2>
+              Treffix sudah membantu kami untuk membuat sistem yang dapat
+              meningkatkan produktifitas
+            </H2>
+            <div className="mt-3">
+              <P className="font-bold">— Gina F.</P>
+              <P className="text-muted-foreground">
+                Improvement Analyst, PT Trimitra Trans Persada
+              </P>
+            </div>
+          </div>
+          <div className="w-1/3">
+            <AspectRatio ratio={16 / 13}>
+              <Image
+                src="/images/review_1.png"
+                alt="review"
+                fill
+                className="rounded-r-xl object-cover"
+              />
+            </AspectRatio>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
+
+const ServiceDetail = (props: ServiceDetailProps) => {
+  return (
+    <div
+      className={cn(
+        "flex flex-row items-center justify-between gap-20",
+        props.isReverse && "flex-row-reverse",
+      )}
+    >
+      <div className="flex w-1/2 flex-col items-start gap-3">
+        <Card className="p-1">
+          <Image src={props.icon} alt="icon" width={25} height={25} />
+        </Card>
+        <H2 className="">{props.title}</H2>
+        <P>{props.description}</P>
+        <div className="ml-3 flex flex-col">
+          {props.features.map((feature, index) => (
+            <div key={index} className="flex flex-row items-center gap-2">
+              <Image
+                src="/icons/check.svg"
+                className="mt-3"
+                alt="icon"
+                width={15}
+                height={15}
+              />
+              <P className="text-muted-foreground">{feature}</P>
+            </div>
+          ))}
+        </div>
+        <Button variant="outline" className="mt-3">
+          Pelajari Lebih Lanjut
+        </Button>
+      </div>
+      <div className="flex w-1/2 items-center justify-center">
+        <AspectRatio ratio={16 / 14}>
+          <Image
+            src={props.image}
+            alt="hero"
+            fill
+            className="rounded-xl object-cover"
+          />
+        </AspectRatio>
+      </div>
+    </div>
+  );
+};
