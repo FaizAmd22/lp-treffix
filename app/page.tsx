@@ -1,10 +1,21 @@
+"use client";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { H2 } from "@/components/ui/h2";
 import { P } from "@/components/ui/p";
+import PageDot from "@/components/ui/page-dot";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useState } from "react";
+import { Rating } from "react-simple-star-rating";
 
 type ServiceDetailProps = {
   image: string;
@@ -89,6 +100,55 @@ export default function Home() {
     },
   ];
 
+  const reviews = [
+    {
+      image: "/images/review_1.png",
+      stars: 5,
+      review:
+        "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
+      name: "Gina F.",
+      position: "Improvement Analyst",
+    },
+    {
+      image: "/images/review_1.png",
+      stars: 5,
+      review:
+        "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
+      name: "Gina W.",
+      position: "Improvement Analyst",
+    },
+  ];
+
+  const [activeReview, setActiveReview] = useState(0);
+
+  const faqs = [
+    {
+      question: "Apakah tersedia uji coba gratis?",
+      answer:
+        "Ya, Anda bisa mencoba produk kami secara gratis selama 30 hari. Jika Anda mau, kami akan memberi Anda panggilan onboarding gratis selama 30 menit yang dipersonalisasi agar Anda dapat segera beroperasi.",
+    },
+    {
+      question: "Berapa lama garansi yang diberikan?",
+      answer:
+        "Ya, Anda bisa mencoba produk kami secara gratis selama 30 hari. Jika Anda mau, kami akan memberi Anda panggilan onboarding gratis selama 30 menit yang dipersonalisasi agar Anda dapat segera beroperasi.",
+    },
+    {
+      question: "Bagaimana cara penagihan bekerja?",
+      answer:
+        "Ya, Anda bisa mencoba produk kami secara gratis selama 30 hari. Jika Anda mau, kami akan memberi Anda panggilan onboarding gratis selama 30 menit yang dipersonalisasi agar Anda dapat segera beroperasi.",
+    },
+    {
+      question: "Dapatkah saya mengubah paket saya nanti?",
+      answer:
+        "Ya, Anda bisa mencoba produk kami secara gratis selama 30 hari. Jika Anda mau, kami akan memberi Anda panggilan onboarding gratis selama 30 menit yang dipersonalisasi agar Anda dapat segera beroperasi.",
+    },
+    {
+      question: "Dapatkah saya membeli kamera saja tanpa sistem?",
+      answer:
+        "Ya, Anda bisa mencoba produk kami secara gratis selama 30 hari. Jika Anda mau, kami akan memberi Anda panggilan onboarding gratis selama 30 menit yang dipersonalisasi agar Anda dapat segera beroperasi.",
+    },
+  ];
+
   return (
     <div>
       <div id="hero" className="flex min-h-[calc(100vh_-_64px)] flex-row">
@@ -144,30 +204,65 @@ export default function Home() {
       </div>
       <div id="reviews" className="mb-40">
         <hr />
-        <div className="mt-10 flex flex-row items-center">
-          <div className="flex w-2/3 flex-col gap-2">
-            <p>stars</p>
-            <H2>
-              Treffix sudah membantu kami untuk membuat sistem yang dapat
-              meningkatkan produktifitas
-            </H2>
+        <div className="mt-10 flex flex-row items-center rounded-xl bg-[#F9FAFB]">
+          <div className="flex w-2/3 flex-col gap-2 p-5">
+            <div className="flex flex-row">
+              <Rating
+                initialValue={reviews[activeReview].stars}
+                size={20}
+                readonly
+                SVGstyle={{
+                  display: "inline",
+                }}
+              />
+            </div>
+            <H2>{reviews[activeReview].review}</H2>
             <div className="mt-3">
-              <P className="font-bold">— Gina F.</P>
-              <P className="text-muted-foreground">
-                Improvement Analyst, PT Trimitra Trans Persada
+              <P className="font-bold">— {reviews[activeReview].name}</P>
+              <P className="!mt-0 text-muted-foreground">
+                {reviews[activeReview].position}
               </P>
+            </div>
+            <div className="mt-5 flex flex-row gap-4">
+              {reviews.map((_, index) => (
+                <div
+                  key={index}
+                  className="cursor-pointer"
+                  onClick={() => setActiveReview(index)}
+                >
+                  <PageDot active={index === activeReview} />
+                </div>
+              ))}
             </div>
           </div>
           <div className="w-1/3">
             <AspectRatio ratio={16 / 13}>
               <Image
-                src="/images/review_1.png"
+                src={reviews[activeReview].image}
                 alt="review"
                 fill
                 className="rounded-r-xl object-cover"
               />
             </AspectRatio>
           </div>
+        </div>
+      </div>
+      <div
+        id="faq"
+        className="flex flex-col items-center justify-center text-center"
+      >
+        <H2>Pertanyaan yang sering diajukan</H2>
+        <div className="mb-40 mt-5 w-1/2">
+          <Accordion type="single" collapsible>
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-start">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>
