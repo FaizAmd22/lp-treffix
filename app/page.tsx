@@ -40,8 +40,7 @@ export default function Home() {
       description: (
         <p className="text-center">
           Memantau dengan kecerdasan buatan dengan{" "}
-          <span className="italic">deep learning</span>
-          untuk dashcam atau CCTV
+          <span className="italic">deep learning</span> untuk dashcam atau CCTV
         </p>
       ),
     },
