@@ -24,8 +24,8 @@ const footerItems = [
 
 const Footer = () => {
   return (
-    <div className="mb-10 flex w-full flex-col gap-16">
-      <div className="flex flex-col items-center gap-5 rounded-xl bg-primary py-10 text-center">
+    <div id="footer" className="mb-10 flex w-full flex-col gap-16">
+      <div className="flex flex-col items-center gap-5 rounded-xl bg-primary px-5 py-10 text-center">
         <H2 className="font-bold text-background">
           Ready to take the journey with us?
         </H2>
@@ -34,7 +34,7 @@ const Footer = () => {
         </Button>
       </div>
       <div className="flex flex-col gap-10">
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-col justify-between md:flex-row">
           <div className="flex flex-col gap-2">
             <Image src="/Logo.svg" alt="logo" width={100} height={100} />
             <div className="flex flex-row gap-3">
@@ -45,7 +45,7 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="mt-5 flex flex-col gap-2 md:mt-0">
             <P className="font-bold">Stay up to date</P>
             <div className="flex flex-row gap-3">
               <Input type="email" placeholder="Enter your email" />
@@ -53,9 +53,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-between">
-          <P className="text-muted-foreground">
-            © 2021 Treffix. All rights reserved.
+        <div className="flex flex-col-reverse justify-between md:flex-row">
+          <P className="mt-5 text-muted-foreground md:mt-0">
+            © 2024 Treffix. All rights reserved.
           </P>
           <div className="flex flex-row gap-3">
             {footerItems.map((item, index) => (

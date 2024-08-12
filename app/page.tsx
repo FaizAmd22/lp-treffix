@@ -157,7 +157,7 @@ export default function Home() {
   return (
     <div>
       <div id="hero" className="flex min-h-[calc(100vh_-_64px)] flex-row">
-        <div className="flex w-1/2 flex-col justify-center gap-5">
+        <div className="flex w-full flex-col justify-center gap-5 md:w-1/2">
           <h1 className="text-5xl font-bold text-slate-950">
             Optimalkan Bisnis Anda dengan Aset Monitoring Berbasis AI
           </h1>
@@ -170,7 +170,7 @@ export default function Home() {
             <Button variant="outline">Demo</Button>
           </div>
         </div>
-        <div className="flex w-1/2 items-center justify-center">
+        <div className="hidden w-1/2 items-center justify-center md:flex">
           <Image
             src="/hero.svg"
             alt="hero"
@@ -180,7 +180,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="service" className="flex h-[60vh] items-start">
+      <div id="service" className="mb-40 flex items-start">
         <div className="flex flex-col">
           <H2 className="mb-5 text-center">Layanan Kami</H2>
           <P className="text-center">
@@ -189,9 +189,12 @@ export default function Home() {
             Dengan solusi kami, Anda dapat mengoptimalkan operasional dan
             meningkatkan keamanan.
           </P>
-          <div className="mt-10 flex flex-row gap-5">
+          <div className="mt-10 flex flex-col gap-5 md:flex-row">
             {services.map((service, index) => (
-              <div key={index} className="flex w-1/3 flex-col items-center">
+              <div
+                key={index}
+                className="flex w-full flex-col items-center md:w-1/3"
+              >
                 <Card className="p-1">
                   <Image src={service.icon} alt="icon" width={25} height={25} />
                 </Card>
@@ -210,7 +213,7 @@ export default function Home() {
       <div id="reviews" className="mb-40">
         <hr />
         <div className="mt-10 flex flex-row items-center rounded-xl bg-[#F9FAFB]">
-          <div className="flex w-2/3 flex-col gap-2 p-5">
+          <div className="flex w-full flex-col gap-2 p-5 md:w-2/3">
             <div className="flex flex-row">
               <Rating
                 initialValue={reviews[activeReview].stars}
@@ -240,7 +243,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="hidden w-1/3 md:flex">
             <AspectRatio ratio={16 / 13}>
               <Image
                 src={reviews[activeReview].image}
@@ -257,7 +260,7 @@ export default function Home() {
         className="flex flex-col items-center justify-center text-center"
       >
         <H2>Pertanyaan yang sering diajukan</H2>
-        <div className="mb-40 mt-5 w-1/2">
+        <div className="mb-40 mt-5 w-full md:w-1/2">
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
@@ -270,6 +273,21 @@ export default function Home() {
           </Accordion>
         </div>
       </div>
+      <div
+        id="area"
+        className="flex flex-col items-center justify-center text-center"
+      >
+        <H2>Area Operasi Kami</H2>
+        <div className="mb-40 mt-5 w-full md:w-4/5">
+          <Image
+            src="/images/indonesia.svg"
+            alt="map"
+            width={1100}
+            height={800}
+            // className="ml-16"
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -278,11 +296,11 @@ const ServiceDetail = (props: ServiceDetailProps) => {
   return (
     <div
       className={cn(
-        "flex flex-row items-center justify-between gap-20",
-        props.isReverse && "flex-row-reverse",
+        "flex flex-col items-center justify-between gap-20 md:flex-row",
+        props.isReverse && "flex-col md:flex-row-reverse",
       )}
     >
-      <div className="flex w-1/2 flex-col items-start gap-3">
+      <div className="flex w-full flex-col items-start gap-3 md:w-1/2">
         <Card className="p-1">
           <Image src={props.icon} alt="icon" width={25} height={25} />
         </Card>
@@ -306,7 +324,7 @@ const ServiceDetail = (props: ServiceDetailProps) => {
           Pelajari Lebih Lanjut
         </Button>
       </div>
-      <div className="flex w-1/2 items-center justify-center">
+      <div className="flex w-full items-center justify-center md:w-1/2">
         <AspectRatio ratio={16 / 14}>
           <Image
             src={props.image}
