@@ -13,12 +13,18 @@ import { H2 } from "@/components/ui/h2";
 import { P } from "@/components/ui/p";
 import PageDot from "@/components/ui/page-dot";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 
+import service_1 from "@/public/images/service_1.png";
+import service_2 from "@/public/images/service_2.png";
+import service_3 from "@/public/images/service_3.png";
+
+import review_1 from "@/public/images/review_1.png";
+
 type ServiceDetailProps = {
-  image: string;
+  image: StaticImageData;
   icon: string;
   title: string;
   description: string;
@@ -61,7 +67,7 @@ export default function Home() {
 
   const servicesDetails: ServiceDetailProps[] = [
     {
-      image: "/images/service_1.png",
+      image: service_1,
       icon: "icons/user.svg",
       title: "Tingkatkan Produktivitas dan Keamaanan Karyawan",
       description:
@@ -74,7 +80,7 @@ export default function Home() {
       ],
     },
     {
-      image: "/images/service_2.png",
+      image: service_2,
       icon: "icons/box.svg",
       title: "Optimalkan Efisiensi dan Kurangi Biaya Operasional",
       description:
@@ -87,7 +93,7 @@ export default function Home() {
       isReverse: true,
     },
     {
-      image: "/images/service_3.png",
+      image: service_3,
       icon: "icons/car.svg",
       title: "Nikmati Pengelolaan Armada yang Lebih Efisien",
       description:
@@ -102,7 +108,7 @@ export default function Home() {
 
   const reviews = [
     {
-      image: "/images/review_1.png",
+      image: review_1,
       stars: 5,
       review:
         "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
@@ -110,7 +116,7 @@ export default function Home() {
       position: "Improvement Analyst",
     },
     {
-      image: "/images/review_1.png",
+      image: review_1,
       stars: 5,
       review:
         "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
