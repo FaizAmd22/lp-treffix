@@ -68,9 +68,9 @@ export default function Home() {
     {
       image: service_1,
       icon: "icons/user.svg",
-      title: "Tingkatkan Produktivitas dan Keamaanan Karyawan",
+      title: "Tingkatkan Produktivitas dan Keamanan Karyawan",
       description:
-        "Mengamankan Lingkungan Kerja dan Meningkatkan Efisiensi dengan pemantauaan karyawan berbasis kecerdasan buatan (AI).",
+        "Mengamankan Lingkungan Kerja dan Meningkatkan Efisiensi dengan pemantauan karyawan berbasis kecerdasan buatan (AI).",
       features: [
         "Pelacakan & Penghitungan Orang",
         "Pengenal Wajah (Face Detection)",
@@ -114,14 +114,14 @@ export default function Home() {
       name: "Gina F.",
       position: "Improvement Analyst",
     },
-    {
-      image: review_1,
-      stars: 5,
-      review:
-        "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
-      name: "Gina W.",
-      position: "Improvement Analyst",
-    },
+    // {
+    //   image: review_1,
+    //   stars: 5,
+    //   review:
+    //     "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
+    //   name: "Gina W.",
+    //   position: "Improvement Analyst",
+    // },
   ];
 
   const [activeReview, setActiveReview] = useState(0);
@@ -162,8 +162,8 @@ export default function Home() {
             Optimalkan Bisnis Anda dengan Aset Monitoring Berbasis AI
           </h1>
           <P className="text-lg text-muted-foreground">
-            Mengoptimalkan kinerja bisnis Anda dengan pemamntauan yang akurat
-            dan efisien
+            Mengoptimalkan kinerja bisnis Anda dengan pemantauan yang akurat dan
+            efisien
           </P>
           <div className="flex flex-row gap-2">
             <Button variant="default">Get Started</Button>
