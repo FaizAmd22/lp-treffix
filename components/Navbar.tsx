@@ -12,7 +12,20 @@ import {
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "./ui/drawer";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./ui/collapsible";
+import { ChevronsUpDown } from "lucide-react";
+import { Card } from "./ui/card";
 
 export const items = [
   {
@@ -27,27 +40,30 @@ export const items = [
         title: "Pemantauan Karyawan",
         description:
           "Memungkinkan pengawasan karyawan dengan otomatis dan real-time.",
-        link: "/produk",
+        link: "/services/employee",
+        icon: "/icons/user.svg",
       },
       {
         title: "Pemantauan Penyimpanan Dingin",
         description: "Memastikan kontrol suhu dan keamanan secara otomatis.",
-        link: "/produk",
+        link: "/services/cold-storage",
+        icon: "/icons/box.svg",
       },
       {
         title: "Pemantauan Kendaraan ",
         description: "Menghadirkan pengawasan cerdas dan pelacakan kendaraan.",
-        link: "/produk",
+        link: "/services/vehicle",
+        icon: "/icons/car.svg",
       },
     ],
   },
   {
     title: "Hubungi kami",
-    link: "#footer",
+    link: "/#footer",
   },
   {
     title: "FAQ",
-    link: "#faq",
+    link: "/#faq",
   },
 ];
 
@@ -78,7 +94,7 @@ const Navbar = () => {
                             key={index}
                             title={child.title}
                             // href={item.link}
-                            href={"#"}
+                            href={child.link}
                           >
                             {child.description}
                           </ListItem>
@@ -113,45 +129,65 @@ const Navbar = () => {
             <Image src="/icons/bars.svg" alt="menu" width={15} height={15} />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="left-auto right-0 top-0 mt-0 h-screen rounded-none">
-          <div className="h-full content-center p-5">
-            <DrawerClose>
-              <Button variant={"outline"} className="absolute right-3 top-3">
-                <Image src="/icons/x.svg" alt="close" width={10} height={10} />
-              </Button>
-            </DrawerClose>
+        <DrawerContent
+          className="left-auto right-0 top-0 mt-0 h-screen w-2/3 rounded-none sm:w-1/2"
+          showBar={false}
+        >
+          <DrawerTitle className="px-5 py-3">
+            <div className="flex flex-row items-center justify-between">
+              <Link href="/">
+                <Image src="/Logo.svg" alt="logo" width={100} height={100} />
+              </Link>
+              <DrawerClose>
+                <Button variant={"outline"}>
+                  <Image
+                    src="/icons/x.svg"
+                    alt="close"
+                    width={10}
+                    height={10}
+                  />
+                </Button>
+              </DrawerClose>
+            </div>
+          </DrawerTitle>
+          <div className="h-full content-center self-center p-5">
             <NavigationMenu className="text-center">
               <NavigationMenuList className="flex flex-col">
                 {items.map((item, index) =>
                   item.child ? (
-                    <NavigationMenuItem key={index} className="w-full">
-                      <NavigationMenuTrigger>
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      {/* <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px]">
-                          {item.child.map((child, index) => (
-                            <ListItem
-                              key={index}
-                              title={child.title}
-                              href={item.link}
-                            >
-                              {child.description}
-                            </ListItem>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent> */}
-                    </NavigationMenuItem>
+                    <Collapsible key={index}>
+                      <CollapsibleTrigger asChild className="text-center">
+                        <NavigationMenuItem className="flex flex-row items-center justify-center">
+                          <p className="mr-1">Services</p>
+                          <ChevronsUpDown className="h-4 w-4" />
+                        </NavigationMenuItem>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="mt-3 flex flex-col gap-3">
+                        {item.child.map((child, index) => (
+                          <Link href={child.link} key={index} passHref>
+                            <div className="flex flex-row items-center gap-3 rounded-md border px-4 py-3 text-left font-mono text-sm hover:bg-slate-200">
+                              <Card className="p-1">
+                                <Image
+                                  src={child.icon}
+                                  alt="icon"
+                                  width={25}
+                                  height={25}
+                                />
+                              </Card>
+                              {child.title}
+                            </div>
+                          </Link>
+                        ))}
+                      </CollapsibleContent>
+                    </Collapsible>
                   ) : (
                     <NavigationMenuItem key={index} className="w-full">
-                      {/* <Link href={item.link} passHref> */}
                       <NavigationMenuLink
                         href={item.link}
                         className={navigationMenuTriggerStyle()}
                       >
                         {item.title}
                       </NavigationMenuLink>
-                      {/* </Link> */}
                     </NavigationMenuItem>
                   ),
                 )}

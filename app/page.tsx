@@ -22,6 +22,8 @@ import service_2 from "@/public/images/service_2.png";
 import service_3 from "@/public/images/service_3.png";
 
 import review_1 from "@/public/images/review_1.png";
+import Link from "next/link";
+import { Url } from "next/dist/shared/lib/router/router";
 
 type ServiceDetailProps = {
   image: StaticImageData;
@@ -30,13 +32,14 @@ type ServiceDetailProps = {
   description: string;
   features: string[];
   isReverse?: boolean;
+  link?: string;
 };
 
 export default function Home() {
   const services = [
     {
       icon: "icons/user.svg",
-      title: "Pemantauan Keryawan",
+      title: "Pemantauan Karyawan",
       description: (
         <p className="text-center">
           Memantau dengan kecerdasan buatan dengan{" "}
@@ -77,6 +80,7 @@ export default function Home() {
         "Deteksi dan Pelacakan Objek",
         "Deteksi APD (Safety Wear Detection)",
       ],
+      link: "/services/employee",
     },
     {
       image: service_2,
@@ -90,6 +94,7 @@ export default function Home() {
         "Mengurangi biaya operasional (listrik)",
       ],
       isReverse: true,
+      link: "/services/cold-storage",
     },
     {
       image: service_3,
@@ -102,6 +107,7 @@ export default function Home() {
         "Dapatkan Peringatan dan Notifikasi Instan",
         "Mengelola Armada Anda Secara Efisien",
       ],
+      link: "/services/vehicle",
     },
   ];
 
@@ -114,14 +120,6 @@ export default function Home() {
       name: "Gina F.",
       position: "Improvement Analyst",
     },
-    // {
-    //   image: review_1,
-    //   stars: 5,
-    //   review:
-    //     "Treffix sudah membantu kami untuk membuat sistem yang dapat meningkatkan produktifitas",
-    //   name: "Gina W.",
-    //   position: "Improvement Analyst",
-    // },
   ];
 
   const [activeReview, setActiveReview] = useState(0);
@@ -156,7 +154,10 @@ export default function Home() {
 
   return (
     <div>
-      <div id="hero" className="flex min-h-[calc(100vh_-_64px)] flex-row">
+      <div
+        id="hero"
+        className="mx-break-out px-break-out flex min-h-[calc(100vh_-_64px)] flex-row"
+      >
         <div className="flex w-full flex-col justify-center gap-5 md:w-1/2">
           <h1 className="text-5xl font-bold text-slate-950">
             Optimalkan Bisnis Anda dengan Aset Monitoring Berbasis AI
@@ -264,7 +265,9 @@ export default function Home() {
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionTrigger className="text-start">
+                  {faq.question}
+                </AccordionTrigger>
                 <AccordionContent className="text-start">
                   {faq.answer}
                 </AccordionContent>
@@ -320,9 +323,11 @@ const ServiceDetail = (props: ServiceDetailProps) => {
             </div>
           ))}
         </div>
-        <Button variant="outline" className="mt-3">
-          Pelajari Lebih Lanjut
-        </Button>
+        <Link href={props.link as Url} passHref>
+          <Button variant="outline" className="mt-3">
+            Pelajari Lebih Lanjut
+          </Button>
+        </Link>
       </div>
       <div className="flex w-full items-center justify-center md:w-1/2">
         <AspectRatio ratio={16 / 14}>

@@ -1,19 +1,19 @@
 import { cn } from "@/lib/utils";
 
-type TypographyPProps = {
+type H1Props = {
   children: React.ReactNode;
   className?: string;
 };
 
-export function P({ children, className }: TypographyPProps) {
+export function H1({ children, className }: H1Props) {
   return (
-    <p
+    <h1
       className={cn(
-        "leading-7 text-[#475467] [&:not(:first-child)]:mt-3",
+        "scroll-m-20 text-4xl font-semibold tracking-tight lg:text-5xl",
         className,
       )}
     >
       {children}
-    </p>
+    </h1>
   );
 }

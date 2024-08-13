@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: "Inter";
+    src: url("../public/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf")
+      format("truetype");
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -61,7 +67,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border font-sans;
   }
   body {
     @apply bg-background text-foreground;

@@ -212,7 +212,7 @@
   dependencies:
     "@radix-ui/react-primitive" "2.0.0"
 
-"@radix-ui/react-collapsible@1.1.0":
+"@radix-ui/react-collapsible@1.1.0", "@radix-ui/react-collapsible@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-collapsible/-/react-collapsible-1.1.0.tgz#4d49ddcc7b7d38f6c82f1fd29674f6fab5353e77"
   integrity sha512-zQY7Epa8sTL0mq4ajSJpjgn2YmCgyrG7RsQgLp3C0LQVkG7+Tf6Pv1CeNWZLyqMjhdPkBa5Lx7wYBeSu7uCSTA==
@@ -2780,6 +2780,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+
+tailwind-container-break-out@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/tailwind-container-break-out/-/tailwind-container-break-out-2.0.9.tgz#a338eb6cd2660888e477df15b9d9fa43d4c5d75e"
+  integrity sha512-yAGY98duHMvpKz3cXMj/3gFr1MD0T/AXvCwTS4S2uZDK4Y16jwB4o0IaZjJLfF5faCCLhdikmQMfDEl4miDaMg==
 
 tailwind-merge@^2.4.0:
   version "2.4.0"
