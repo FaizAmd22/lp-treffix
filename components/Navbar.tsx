@@ -74,7 +74,7 @@ const Navbar = () => {
         <Link href="/">
           <Image
             src="/Logo.svg"
-            alt="logo"
+            alt="treffix_logo"
             className="mr-16"
             width={100}
             height={100}

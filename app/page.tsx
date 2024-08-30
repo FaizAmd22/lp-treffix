@@ -246,12 +246,12 @@ export default function Home() {
           </div>
           <div className="hidden w-1/3 md:flex">
             <AspectRatio ratio={16 / 13}>
-              <Image
+              {/* <Image
                 src={reviews[activeReview].image}
                 alt="review"
                 fill
                 className="rounded-r-xl object-cover"
-              />
+              /> */}
             </AspectRatio>
           </div>
         </div>
