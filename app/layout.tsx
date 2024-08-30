@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "Treffix",
   description: "Your next AI-powered tracking system",
   icons: "/favicon.ico",
+  openGraph: {
+    type: "website",
+    url: "https://treffix.id",
+    siteName: "Treffix",
+    images: [
+      {
+        url: "https://treffix.id/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "Treffix",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
