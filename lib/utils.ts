@@ -21,3 +21,5 @@ export const setScrollbarWidth = () => {
   window.addEventListener('resize', () => getScrollbarWidth);
   getScrollbarWidth();
 };
+
+export const number = "6281259781942";

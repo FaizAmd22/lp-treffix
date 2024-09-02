@@ -4,4 +4,4 @@ Disallow: /api/
 Disallow: /images
 Allow: /  # Mengizinkan indeks semua halaman selain yang dilarang di atas
 
-Sitemap: https://bnurd.com/sitemap.xml 
+Sitemap: https://treffix.id/sitemap.xml

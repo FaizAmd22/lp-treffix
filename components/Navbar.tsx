@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { cn, number } from "@/lib/utils";
 import {
   Drawer,
   DrawerClose,
@@ -121,7 +121,9 @@ const Navbar = () => {
       </div>
       <div className="hidden flex-row gap-2 md:flex">
         <Button variant={"outline"}>Demo</Button>
-        <Button>Contact Us</Button>
+        <Link href={"https://wa.me/" + number} target="_blank">
+          <Button>Contact Us</Button>
+        </Link>
       </div>
       <Drawer direction="right">
         <DrawerTrigger asChild>

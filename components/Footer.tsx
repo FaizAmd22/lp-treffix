@@ -6,6 +6,7 @@ import { items } from "./Navbar";
 import Link from "next/link";
 import { P } from "./ui/p";
 import { Input } from "./ui/input";
+import { number } from "@/lib/utils";
 
 const footerItems = [
   {
@@ -29,9 +30,11 @@ const Footer = () => {
         <H2 className="font-bold text-background">
           Ready to take the journey with us?
         </H2>
-        <Button variant="roundedinvert" className="w-fit">
-          Contact Us
-        </Button>
+        <Link href={"https://wa.me/" + number} target="_blank">
+          <Button variant="roundedinvert" className="w-fit">
+            Contact Us
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-col gap-10">
         <div className="flex flex-col justify-between md:flex-row">
