@@ -256,7 +256,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         id="faq"
         className="flex flex-col items-center justify-center text-center"
       >
@@ -275,7 +275,7 @@ export default function Home() {
             ))}
           </Accordion>
         </div>
-      </div>
+      </div> */}
       <div
         id="area"
         className="flex flex-col items-center justify-center text-center"

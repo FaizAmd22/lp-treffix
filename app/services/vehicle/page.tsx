@@ -12,6 +12,12 @@ import service_10 from "@/public/images/service_10.png";
 import service_11 from "@/public/images/service_11.png";
 import service_12 from "@/public/images/service_12.png";
 import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Vehicle = () => {
   const values = [
@@ -39,6 +45,36 @@ const Vehicle = () => {
       title: "Pemantauan Perilaku Pengemudi",
       desc: "Meningkatkan keselamatan dan efisiensi dengan layanan pemantauan perilaku pengemudi. Terima peringatan real-time untuk perilaku mengemudi berisiko, membantu menciptakan lingkungan yang lebih aman, mengurangi kecelakaan, dan menurunkan biaya asuransi.",
       img: service_12,
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "Apakah tersedia uji coba gratis?",
+      answer:
+        "Kami menawarkan uji coba gratis selama 30 hari untuk platform kami. Untuk memulai uji coba atau menjadwalkan demo, silakan hubungi tim kami. Kami akan dengan senang hati membantu Anda.",
+    },
+    {
+      question: "Apakah perangkat GPS dapat terintegrasi dengan hardware lain?",
+      answer:
+        "Perangkat GPS kami dapat terintegrasi dengan berbagai alat tambahan, seperti AI Dashcam, iFuelStick, PTO (Power Take-Off), dan sensor lainnya. Integrasi ini memungkinkan Anda untuk memaksimalkan fungsi dari sistem monitoring kami dengan fitur tambahan seperti pemantauan Driver, pengukuran konsumsi bahan bakar, dan analisis performa dari kendaraan.",
+    },
+    {
+      question: "Apakah ada batasan jumlah kendaraan yang bisa dipantau?",
+      answer:
+        "Platform kami tidak memiliki batasan jumlah kendaraan. Kami menyediakan sarana untuk memantau kendaraan secara unlimited, sehingga Anda dapat mengelola armada Anda dalam jumlah berapapun tanpa kendala.",
+    },
+    {
+      question:
+        "Apakah perangkat sperti GPS dan Dashcam dilengkapi dengan garansi?",
+      answer:
+        "Perangkat GPS dan Dashcam kami dilengkapi dengan garansi. Masa durasi garansi berbeda beda tiap device tergantung jenis perangakat. ",
+    },
+    {
+      question:
+        "Apakah platform Treffix dapat terintegrasi dengan platform lain?",
+      answer:
+        "Platform Treffix.ID dapat diintegrasikan dengan berbagai platform dan sistem lainnya, termasuk sistem akuntansi, ERP, WMS, dan lainnya melalui API integration.",
     },
   ];
 
@@ -86,6 +122,27 @@ const Vehicle = () => {
           </div>
         </div>
       ))}
+
+      <div
+        id="faq"
+        className="flex flex-col items-center justify-center text-center"
+      >
+        <H2>Pertanyaan yang sering diajukan</H2>
+        <div className="mb-40 mt-5 w-full md:w-1/2">
+          <Accordion type="single" collapsible>
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-start">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-start">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
     </div>
   );
 };
