@@ -61,10 +61,10 @@ export const items = [
     title: "Hubungi kami",
     link: "/#footer",
   },
-  {
-    title: "FAQ",
-    link: "/#faq",
-  },
+  // {
+  //   title: "FAQ",
+  //   link: "/#faq",
+  // },
 ];
 
 const Navbar = () => {
