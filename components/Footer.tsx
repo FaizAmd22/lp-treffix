@@ -61,7 +61,7 @@ const Footer = () => {
                       Email:
                     </P>
                     <P className="!mt-0 text-sm text-muted-foreground">
-                      anang@treffix.id
+                      timothy@treffix.id
                     </P>
                   </div>
                   <div>
@@ -69,7 +69,7 @@ const Footer = () => {
                       Mobile:
                     </P>
                     <P className="!mt-0 text-sm text-muted-foreground">
-                      (+62) 812-9550-6475
+                      (+62) 851-5525-2814
                     </P>
                   </div>
                 </div>
