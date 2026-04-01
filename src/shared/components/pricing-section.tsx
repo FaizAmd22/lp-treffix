@@ -107,7 +107,7 @@ function PricingCard({
       {/* Card body — flex-1 so all cards stretch to same height */}
       <div
         className={`relative flex flex-col rounded-3xl py-9 px-7 transition-all duration-300 overflow-hidden ${
-          isRec ? "shadow-2xl h-full lg:h-160" : "h-full lg:h-148 mt-0 lg:mt-2"
+          isRec ? "shadow-2xl h-full lg:h-162" : "h-full lg:h-153 mt-0 lg:mt-2"
         }`}
         style={{
           background: isRec
