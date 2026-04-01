@@ -39,7 +39,7 @@ export default function CtaSection() {
         <div className="flex items-center w-full mt-12">
           <div className={`lg:w-full h-70 sm:h-96 lg:h-150 flex-1`}>
             <img
-              src={"/images/phone-contact.svg"}
+              src={"/images/phone-contact.png"}
               alt={"phone"}
               className="w-full h-full object-contain"
             />

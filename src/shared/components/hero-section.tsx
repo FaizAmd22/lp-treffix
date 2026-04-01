@@ -62,7 +62,7 @@ export default function HeroSection() {
 
           <div className="relative flex justify-center lg:justify-end col-span-2">
             <img
-              src="/images/phone-hero.svg"
+              src="/images/phone-hero.png"
               alt="Fixwork App Preview"
               className="w-full h-auto object-contain lg:animate-(--animate-float) will-change-transform"
             />
