@@ -47,8 +47,6 @@ export default function Navbar() {
                 <div className="relative">
                   <button
                     className="flex items-center gap-1 text-xl text-white font-bold transition-colors cursor-pointer bg-transparent border-0 outline-none"
-                    onMouseEnter={() => setOpenDropdown(true)}
-                    onMouseLeave={() => setOpenDropdown(false)}
                     onClick={() => setOpenDropdown((v) => !v)}
                   >
                     {link.label}
@@ -61,19 +59,18 @@ export default function Navbar() {
 
                   {openDropdown && (
                     <div
-                      className="absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden shadow-2xl"
+                      className="absolute top-full left-0 mt-2 w-72 rounded-xl overflow-hidden shadow-2xl"
                       style={{
                         background: "rgba(20,20,30,0.97)",
                         border: "1px solid rgba(255,255,255,0.08)",
                       }}
-                      onMouseEnter={() => setOpenDropdown(true)}
-                      onMouseLeave={() => setOpenDropdown(false)}
                     >
                       {link.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
                           className="block px-4 py-3 text-xl text-white hover:bg-(--primary-color)/10 transition-colors no-underline"
+                          onClick={() => setOpenDropdown(false)}
                         >
                           {child.label}
                         </Link>
