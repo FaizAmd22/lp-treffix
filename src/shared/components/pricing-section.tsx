@@ -159,7 +159,7 @@ function PricingCard({
           )}
           <div className="flex items-end gap-1.5 mt-1">
             <p
-              className={`text-3xl font-extrabold m-0 ${
+              className={`text-2xl lg:text-3xl font-extrabold m-0 ${
                 isRec ? "text-white" : "text-gray-900"
               }`}
             >
@@ -288,7 +288,7 @@ export default function PricingSection() {
                 className="shrink-0 flex flex-col"
                 style={{
                   scrollSnapAlign: "center",
-                  width: "calc(85vw - 2rem)",
+                  width: "calc(90vw - 2rem)",
                   paddingTop: plan.recomendation ? 0 : "15px",
                 }}
               >

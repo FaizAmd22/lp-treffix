@@ -24,7 +24,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-          <div className="flex flex-col gap-6 col-span-3 text-center lg:text-start items-center lg:items-start">
+          <div className="flex flex-col gap-6 col-span-5 lg:col-span-3 text-center lg:text-start items-center lg:items-start">
             <div className="inline-flex items-center gap-2 self-center lg:self-start">
               <Image
                 src="/logo/fixwork.svg"
@@ -60,7 +60,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end col-span-2">
+          <div className="relative col-span-5 lg:col-span-2 flex justify-center items-center lg:justify-end">
             <img
               src="/images/phone-hero.png"
               alt="Fixwork App Preview"

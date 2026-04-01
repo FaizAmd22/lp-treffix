@@ -236,11 +236,11 @@ export default function FeatureSection() {
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
-          <div className="col-span-2 lg:sticky top-24 self-start">
+          <div className="col-span-5 lg:col-span-2 lg:sticky top-24 lg:self-start text-center lg:text-start">
             <p className="mb-4 text-gray-500 text-sm m-0">
               Semua yang Anda Butuhkan untuk Manajemen HR
             </p>
-            <p className="text-[38px] font-semibold leading-tight m-0">
+            <p className="text-[28px] lg:text-[38px] font-semibold leading-tight m-0">
               Software HRIS{" "}
               <span style={{ color: "var(--primary-color)" }}>all-in-one</span>{" "}
               dengan 7 modul terintegrasi untuk menyederhanakan operasional HR
@@ -248,7 +248,7 @@ export default function FeatureSection() {
             </p>
           </div>
 
-          <div className="col-span-3 flex flex-col gap-4">
+          <div className="col-span-5 lg:col-span-3 flex flex-col gap-4">
             {features.map((item) => (
               <RegularCard
                 key={item.id}
