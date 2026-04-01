@@ -5,28 +5,6 @@ import { useState } from "react";
 import AnimatedButton from "./animated-button";
 import DemoRequestModal from "./demo-request-modal";
 
-const phoneScreens = [
-  {
-    src: "/images/phone-contact-1.svg",
-    alt: "Screen 1",
-    rotate: "-6deg",
-    zIndex: 1,
-  },
-  {
-    src: "/images/phone-contact-2.svg",
-    alt: "Screen 2",
-    rotate: "0deg",
-    center: true,
-    zIndex: 3,
-  },
-  {
-    src: "/images/phone-contact-3.svg",
-    alt: "Screen 3",
-    rotate: "6deg",
-    zIndex: 2,
-  },
-];
-
 export default function CtaSection() {
   const [modalOpened, setModalOpened] = useState<boolean>(false);
 
@@ -58,26 +36,14 @@ export default function CtaSection() {
           </p>
         </div>
 
-        <div className="flex lg:grid lg:grid-cols-3 items-center w-full mt-12">
-          {phoneScreens.map((item, index) => (
-            <div
-              key={index}
-              className={`
-                lg:col-span-1 lg:w-full
-                ${
-                  item.center
-                    ? "h-70 sm:h-96 lg:h-150 flex-1"
-                    : "h-64 sm:h-80 lg:h-140 flex-1"
-                }
-              `}
-            >
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          ))}
+        <div className="flex items-center w-full mt-12">
+          <div className={`lg:w-full h-70 sm:h-96 lg:h-150 flex-1`}>
+            <img
+              src={"/images/phone-contact.svg"}
+              alt={"phone"}
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
 
         {/* CTA */}

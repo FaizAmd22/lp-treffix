@@ -198,7 +198,7 @@ function RegularCard({
                 {feature.keyBenefits?.map((benefit) => (
                   <li
                     key={benefit}
-                    className="flex items-center gap-2.5 text-gray-700"
+                    className="flex items-center text-sm gap-2.5 text-gray-700"
                   >
                     <CheckOutlined
                       style={{
