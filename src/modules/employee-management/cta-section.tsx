@@ -1,14 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState } from "react";
-import AnimatedButton from "../../shared/components/animated-button";
-import DemoRequestModal from "../../shared/components/demo-request-modal";
 import Link from "next/link";
 
 export default function CtaSection() {
-  const [modalOpened, setModalOpened] = useState<boolean>(false);
-
   return (
     <section
       className="relative lg:min-h-screen flex items-center overflow-hidden"

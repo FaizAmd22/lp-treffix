@@ -170,7 +170,7 @@ export default function DemoRequestForm({
                   onChange={field.onChange}
                   onBlur={field.onBlur}
                 >
-                  <Option value="hrms">Manajemen Karyawan (HRMS)</Option>
+                  <Option value="fixwork">Manajemen Karyawan (HRMS)</Option>
                 </Select>
               )}
             />
