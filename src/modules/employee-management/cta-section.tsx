@@ -62,7 +62,7 @@ export default function CtaSection() {
           </Link>
 
           <Link
-            href={"https://apps.apple.com/us/app/qerja/id6759553307"}
+            href={"https://apps.apple.com/us/app/fixwork/id6759553307"}
             target="_blank"
           >
             <img
