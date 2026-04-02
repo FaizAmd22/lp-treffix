@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import AnimatedButton from "@/shared/components/animated-button";
 import { ArrowNarrowRight } from "@untitledui/icons";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export default function ProductSectionHome() {
@@ -30,6 +32,7 @@ export default function ProductSectionHome() {
 
   return (
     <section
+      id="product-section"
       className="relative lg:min-h-screen flex items-center overflow-hidden"
       style={{ background: "var(--bg-light)" }}
     >
@@ -106,6 +109,7 @@ function ProductCard({
   };
 }) {
   const [hovered, setHovered] = useState(false);
+  const router = useRouter();
 
   return (
     <div
@@ -158,14 +162,9 @@ function ProductCard({
               Segera Hadir
             </div>
           ) : (
-            <a
-              href={item.link}
-              className="px-5 py-2.5 rounded-full text-sm font-semibold text-white no-underline"
-              style={{ background: "var(--primary-color)" }}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <AnimatedButton onClick={() => router.push(item.link)}>
               Eksplorasi Produk Kami
-            </a>
+            </AnimatedButton>
           )}
         </div>
       </div>

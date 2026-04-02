@@ -13,6 +13,7 @@
   --bg-dark: #101010;
 
   --animate-float: float 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  --animate-breath: breath 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 * {
@@ -69,5 +70,14 @@ a {
   }
   50% {
     transform: translateY(30px);
+  }
+}
+
+@keyframes breath {
+  0%, 100% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
   }
 }

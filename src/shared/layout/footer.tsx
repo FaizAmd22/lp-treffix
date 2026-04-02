@@ -4,16 +4,24 @@ import Image from "next/image";
 import { Mail01, MarkerPin01, Phone } from "@untitledui/icons";
 
 const socmedList = [
-  { icon: InstagramOutlined, label: "instagram", link: "#" },
-  { icon: LinkedinOutlined, label: "linkedin", link: "#" },
+  {
+    icon: InstagramOutlined,
+    label: "instagram",
+    link: "https://www.instagram.com/treffix.id/",
+  },
+  {
+    icon: LinkedinOutlined,
+    label: "linkedin",
+    link: "https://www.linkedin.com/company/treffix-id/",
+  },
 ];
 
 const footerLinks = {
-  Products: [{ label: "Employee Management", href: "#" }],
+  Products: [{ label: "Employee Management", href: "/employee-management" }],
   Company: [
-    { label: "About", href: "https://treffix.id/" },
+    { label: "About", href: "/about" },
     { label: "Careers", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
   ],
 };
 
@@ -50,14 +58,15 @@ export default function Footer() {
                 const Icon = item.icon;
 
                 return (
-                  <a
+                  <Link
                     key={index}
                     href={item.link}
+                    target="_blank"
                     className="group w-9 h-9 rounded-lg flex items-center justify-center bg-[rgba(255,255,255,0.05)] transition-all duration-300 hover:bg-(--primary-color)"
                     aria-label={item.label}
                   >
                     <Icon className="text-[20px] text-(--primary-color)! transition-colors duration-300 group-hover:text-white!" />
-                  </a>
+                  </Link>
                 );
               })}
             </div>

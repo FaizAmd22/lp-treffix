@@ -2,13 +2,9 @@
 "use client";
 
 import AnimatedButton from "../../shared/components/animated-button";
-import { useState } from "react";
-import DemoRequestModal from "../../shared/components/demo-request-modal";
 import { RotatingCube } from "@/shared/components/rotating-cube";
 
 export default function HeroSectionHome() {
-  const [modalOpened, setModalOpened] = useState<boolean>(false);
-
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden"
@@ -36,14 +32,38 @@ export default function HeroSectionHome() {
           </p>
 
           <div className="mt-28 lg:mt-16">
-            <AnimatedButton onClick={() => setModalOpened(true)}>
+            <AnimatedButton
+              onClick={() => {
+                document.getElementById("product-section")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               Lihat Produk Kami
             </AnimatedButton>
           </div>
         </div>
       </div>
 
-      <div className="hidden lg:flex absolute z-10 top-64 right-[26%] col-span-5 lg:col-span-2 justify-center items-center lg:justify-end">
+      <div
+        className="absolute top-16 w-130 h-130 rounded-full lg:animate-(--animate-breath) will-change-transform"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(37,99,235,0.8) 0%, rgba(29,78,216,0.3) 45%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
+      <div
+        className="absolute bottom-16 right-20 w-80 h-80 rounded-full lg:animate-(--animate-breath) will-change-transform"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(37,99,235,0.8) 0%, rgba(29,78,216,0.3) 45%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
+      <div className="hidden lg:flex absolute top-68 right-[26%] col-span-5 lg:col-span-2 justify-center items-center lg:justify-end">
         <img
           src="/images/home-cube-hero-1.svg"
           alt="cube01"
@@ -51,7 +71,7 @@ export default function HeroSectionHome() {
         />
       </div>
 
-      <div className="hidden lg:flex absolute z-10 bottom-64 left-[28%] col-span-5 lg:col-span-2 justify-center items-center lg:justify-end">
+      <div className="hidden lg:flex absolute bottom-74 left-[28%] col-span-5 lg:col-span-2 justify-center items-center lg:justify-end">
         <img
           src="/images/home-cube-hero-2.svg"
           alt="cube02"
@@ -62,11 +82,6 @@ export default function HeroSectionHome() {
       <div className="w-full h-[120vh] flex items-end justify-center absolute bottom-5">
         <RotatingCube size={600} rotationDuration={7000} />
       </div>
-
-      <DemoRequestModal
-        open={modalOpened}
-        onClose={() => setModalOpened(false)}
-      />
     </section>
   );
 }

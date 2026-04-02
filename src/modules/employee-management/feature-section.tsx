@@ -38,7 +38,7 @@ const features: Feature[] = [
       "Check-In Cepat & Tanpa Kontak",
       "Data Absensi Akurat & Terpercaya",
     ],
-    image: "/images/feature-image-1.svg",
+    image: "/images/feature-image-1.png",
   },
   {
     id: 2,
@@ -53,7 +53,7 @@ const features: Feature[] = [
       "Notifikasi Status Real-Time",
       "Mengurangi Beban Administrasi HR",
     ],
-    image: "/images/feature-image-2.svg",
+    image: "/images/feature-image-2.png",
   },
   {
     id: 3,
@@ -67,7 +67,7 @@ const features: Feature[] = [
       "Check-In Cepat & Tanpa Kontak",
       "Riwayat Aktivitas Kunjungan Lengkap",
     ],
-    image: "/images/feature-image-3.svg",
+    image: "/images/feature-image-3.png",
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ const features: Feature[] = [
       "Pembuatan Kontrak Kandidat",
       "Notifikasi Status Rekrutmen Real-Time",
     ],
-    image: "/images/feature-image-4.svg",
+    image: "/images/feature-image-4.png",
   },
   {
     id: 5,
@@ -97,7 +97,7 @@ const features: Feature[] = [
       "Pengaturan Lokasi & Jadwal Kerja",
       "Riwayat Absensi Karyawan Lengkap",
     ],
-    image: "/images/feature-image-5.svg",
+    image: "/images/feature-image-5.png",
   },
   {
     id: 6,
@@ -112,7 +112,7 @@ const features: Feature[] = [
       "Akurasi Data Lebih Tinggi",
       "Proses Onboarding yang Skalabel",
     ],
-    image: "/images/feature-image-7.svg",
+    image: "/images/feature-image-7.png",
   },
   {
     id: 7,
@@ -127,7 +127,7 @@ const features: Feature[] = [
       "Riwayat & Data Payroll Lengkap",
       "Pembayaran Gaji Tepat Waktu",
     ],
-    image: "/images/feature-image-6.svg",
+    image: "/images/feature-image-6.png",
   },
 ];
 
@@ -142,7 +142,7 @@ function RegularCard({
 }) {
   return (
     <div
-      className="overflow-hidden transition-all duration-300 cursor-pointer select-none border-b border-b-[#E8E8E8]"
+      className="overflow-hidden transition-all duration-300 group hover:shadow-sm hover:scale-[101%] rounded-lg cursor-pointer select-none border-b border-b-[#E8E8E8]"
       onClick={onToggle}
     >
       <div className="px-5 py-5">
@@ -152,7 +152,11 @@ function RegularCard({
               {feature.icon}
             </div>
 
-            <h3 className="font-semibold text-gray-900 text-lg m-0 leading-snug">
+            <h3
+              className={
+                "font-semibold text-gray-900 text-lg m-0 leading-snug group-hover:text-(--primary-color) duration-300 transition-all"
+              }
+            >
               {feature.title}
             </h3>
           </div>
@@ -184,9 +188,9 @@ function RegularCard({
           <div className="grid grid-cols-1 sm:grid-cols-2">
             <div className="w-full h-60 rounded-2xl overflow-hidden">
               <img
-                src={feature.image || "/images/feature-image.svg"}
+                src={feature.image || "/images/feature-image.png"}
                 alt={feature.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
 

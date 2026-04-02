@@ -20,7 +20,7 @@ export default function DemoRequestModal({ open, onClose }: Props) {
           transformasi digital bisnis Anda sekarang.
         </p>
 
-        <DemoRequestForm onSuccess={onClose} type="modal" />
+        <DemoRequestForm onSuccess={onClose} onClose={onClose} type="modal" />
       </div>
     </Modal>
   );

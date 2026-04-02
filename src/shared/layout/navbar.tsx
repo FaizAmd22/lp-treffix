@@ -4,20 +4,24 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "@untitledui/icons";
+import DemoRequestModal from "../components/demo-request-modal";
 
 const navLinks = [
-  { label: "About Us", href: "https://treffix.id/" },
+  { label: "Tentang", href: "/about" },
   {
-    label: "Our Products",
+    label: "Produk",
     href: "#",
-    children: [{ label: "Employee Management", href: "/employee-management" }],
+    children: [
+      { label: "Manajemen Karyawan (HRMS)", href: "/employee-management" },
+    ],
   },
-  { label: "Blog", href: "#" },
-  { label: "Contact Us", href: "#" },
+  { label: "Blog", href: "/blog" },
+  { label: "Hubungi Kami", href: "function" },
 ];
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [modalOpened, setModalOpened] = useState<boolean>(false);
 
   return (
     <header
@@ -40,7 +44,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-6 list-none m-0 p-0">
+        <ul className="hidden lg:flex items-center gap-16 list-none m-0 p-0">
           {navLinks.map((link) => (
             <li key={link.label} className="relative">
               {link.children ? (
@@ -49,10 +53,16 @@ export default function Navbar() {
                     className="flex items-center gap-1 text-xl text-white font-bold transition-colors cursor-pointer bg-transparent border-0 outline-none"
                     onClick={() => setOpenDropdown((v) => !v)}
                   >
-                    {link.label}
+                    <p
+                      style={{
+                        color: openDropdown ? "var(--primary-color)" : "white",
+                      }}
+                    >
+                      {link.label}
+                    </p>
                     <ChevronDown
                       className={`text-xs transition-transform ${
-                        openDropdown ? "rotate-180" : ""
+                        openDropdown ? "rotate-180 text-(--primary-color)" : ""
                       }`}
                     />
                   </button>
@@ -69,7 +79,7 @@ export default function Navbar() {
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-3 text-xl text-white hover:bg-(--primary-color)/10 transition-colors no-underline"
+                          className="block px-4 py-3 text-white hover:bg-(--primary-color)/10 transition-colors no-underline"
                           onClick={() => setOpenDropdown(false)}
                         >
                           {child.label}
@@ -78,9 +88,17 @@ export default function Navbar() {
                     </div>
                   )}
                 </div>
-              ) : (
+              ) : link.href !== "function" ? (
                 <Link
                   href={link.href}
+                  className="text-xl font-bold text-white transition-colors no-underline"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <Link
+                  href=""
+                  onClick={() => setModalOpened(true)}
                   className="text-xl font-bold text-white transition-colors no-underline"
                 >
                   {link.label}
@@ -90,6 +108,11 @@ export default function Navbar() {
           ))}
         </ul>
       </nav>
+
+      <DemoRequestModal
+        open={modalOpened}
+        onClose={() => setModalOpened(false)}
+      />
     </header>
   );
 }
