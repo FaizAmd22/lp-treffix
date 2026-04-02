@@ -20,7 +20,7 @@ const footerLinks = {
   Products: [{ label: "Employee Management", href: "/employee-management" }],
   Company: [
     { label: "About", href: "/about" },
-    { label: "Careers", href: "#" },
+    { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
   ],
 };
