@@ -2,8 +2,8 @@
 "use client";
 
 import { useState } from "react";
-import AnimatedButton from "./animated-button";
-import DemoRequestModal from "./demo-request-modal";
+import AnimatedButton from "../../shared/components/animated-button";
+import DemoRequestModal from "../../shared/components/demo-request-modal";
 
 export default function CtaSection() {
   const [modalOpened, setModalOpened] = useState<boolean>(false);

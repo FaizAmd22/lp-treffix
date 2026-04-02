@@ -2,9 +2,9 @@
 "use client";
 
 import Image from "next/image";
-import AnimatedButton from "./animated-button";
+import AnimatedButton from "../../shared/components/animated-button";
 import { useState } from "react";
-import DemoRequestModal from "./demo-request-modal";
+import DemoRequestModal from "../../shared/components/demo-request-modal";
 
 export default function HeroSection() {
   const [modalOpened, setModalOpened] = useState<boolean>(false);

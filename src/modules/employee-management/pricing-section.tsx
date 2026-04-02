@@ -4,7 +4,7 @@
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { Button, Tag } from "antd";
 import { CheckOutlined, StarFilled } from "@ant-design/icons";
-import DemoRequestModal from "./demo-request-modal";
+import DemoRequestModal from "../../shared/components/demo-request-modal";
 
 interface PricingPlan {
   id: string;

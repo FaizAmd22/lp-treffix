@@ -10,7 +10,7 @@ const navLinks = [
   {
     label: "Our Products",
     href: "#",
-    children: [{ label: "Employee Management", href: "#" }],
+    children: [{ label: "Employee Management", href: "/employee-management" }],
   },
   { label: "Blog", href: "#" },
   { label: "Contact Us", href: "#" },

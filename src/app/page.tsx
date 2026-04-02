@@ -1,15 +1,15 @@
-import CtaSection from "@/shared/components/cta-section";
-import FeaturesSection from "@/shared/components/feature-section";
-import HeroSection from "@/shared/components/hero-section";
-import PricingSection from "@/shared/components/pricing-section";
+import ContactSectionHome from "@/modules/homepage/contact-section-home";
+import HeroSectionHome from "@/modules/homepage/hero-section-home";
+import ProductSectionHome from "@/modules/homepage/product-section-home";
+import ServiceSectionHome from "@/modules/homepage/service-section-home";
 
-export default function Home() {
+export default function EmployeeManagementPage() {
   return (
     <main>
-      <HeroSection />
-      <FeaturesSection />
-      <PricingSection />
-      <CtaSection />
+      <HeroSectionHome />
+      <ProductSectionHome />
+      <ServiceSectionHome />
+      <ContactSectionHome />
     </main>
   );
 }
