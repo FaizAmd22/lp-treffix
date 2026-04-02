@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export async function submitDemoRequest(payload: {
+    product: string;
     name: string;
     email: string;
     phone: string;
     company: string;
-    package: "lite" | "professional" | "enterprise";
+    package: string;
   }) {
     try {
       const response = await fetch("/api/demo-request", {
@@ -13,7 +14,7 @@ export async function submitDemoRequest(payload: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          productCode: "fixwork",
+          productCode: payload.product,
           name: payload.name,
           phoneNumber: payload.phone,
           email: payload.email,

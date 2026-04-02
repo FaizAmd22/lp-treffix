@@ -4,9 +4,14 @@ import DemoRequestForm from "./demo-request-form";
 interface Props {
   open: boolean;
   onClose: () => void;
+  packageValue?: string;
 }
 
-export default function DemoRequestModal({ open, onClose }: Props) {
+export default function DemoRequestModal({
+  open,
+  onClose,
+  packageValue,
+}: Props) {
   return (
     <Modal open={open} onCancel={onClose} footer={null} centered width={600}>
       <div className="p-4">
@@ -20,7 +25,12 @@ export default function DemoRequestModal({ open, onClose }: Props) {
           transformasi digital bisnis Anda sekarang.
         </p>
 
-        <DemoRequestForm onSuccess={onClose} onClose={onClose} type="modal" />
+        <DemoRequestForm
+          onSuccess={onClose}
+          onClose={onClose}
+          type="modal"
+          packageValue={packageValue}
+        />
       </div>
     </Modal>
   );

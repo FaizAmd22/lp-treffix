@@ -15,9 +15,8 @@ const formSchema = z.object({
   email: z.string().email("Email tidak valid"),
   phone: z.string().min(10, "Nomor tidak valid"),
   company: z.string().min(1, "Nama perusahaan wajib diisi"),
-  package: z.enum(["lite", "professional", "enterprise"], {
-    message: "Pilih paket",
-  }),
+  product: z.string().min(1, "Pilih produk"),
+  package: z.string().min(1, "Pilih paket"),
 });
 
 export type FormValues = z.infer<typeof formSchema>;
@@ -26,21 +25,28 @@ interface Props {
   onSuccess?: () => void;
   onClose?: () => void;
   type: "home" | "modal";
+  packageValue?: string;
 }
 
-export default function DemoRequestForm({ onSuccess, onClose, type }: Props) {
+export default function DemoRequestForm({
+  onSuccess,
+  onClose,
+  type,
+  packageValue,
+}: Props) {
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    values: {
       name: "",
       email: "",
       phone: "",
       company: "",
-      package: undefined,
+      product: "",
+      package: packageValue ?? "",
     },
   });
 
@@ -145,6 +151,31 @@ export default function DemoRequestForm({ onSuccess, onClose, type }: Props) {
           )}
         </div>
 
+        {/* Product */}
+        <div>
+          <label className="text-sm font-medium">Produk</label>
+          <Controller
+            name="product"
+            control={control}
+            render={({ field }) => (
+              <Select
+                className="w-full py-2!"
+                placeholder="Pilih Produk yang Dibutuhkan"
+                value={field.value || undefined}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+              >
+                <Option value="hrms">Manajemen Karyawan (HRMS)</Option>
+              </Select>
+            )}
+          />
+          {errors.product && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors.product.message}
+            </p>
+          )}
+        </div>
+
         {/* Package */}
         <div>
           <label className="text-sm font-medium">Paket Yang Dipilih</label>
@@ -155,7 +186,7 @@ export default function DemoRequestForm({ onSuccess, onClose, type }: Props) {
               <Select
                 className="w-full py-2!"
                 placeholder="Pilih Paket"
-                value={field.value}
+                value={field.value || undefined}
                 onChange={field.onChange}
                 onBlur={field.onBlur}
               >

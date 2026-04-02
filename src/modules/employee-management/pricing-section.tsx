@@ -83,9 +83,11 @@ const plans: PricingPlan[] = [
 function PricingCard({
   plan,
   setModalOpened,
+  setPackageValue,
 }: {
   plan: PricingPlan;
   setModalOpened: Dispatch<SetStateAction<boolean>>;
+  setPackageValue: Dispatch<SetStateAction<string>>;
 }) {
   const isRec = plan.recomendation;
 
@@ -180,7 +182,10 @@ function PricingCard({
           block
           size="large"
           className="rounded-full! font-semibold! mb-6 h-14! border-0!"
-          onClick={() => setModalOpened(true)}
+          onClick={() => {
+            setModalOpened(true);
+            setPackageValue(plan.id);
+          }}
           style={
             isRec
               ? { background: "white", color: "var(--primary-color)" }
@@ -235,7 +240,9 @@ function PricingCard({
 
 export default function PricingSection() {
   const [modalOpened, setModalOpened] = useState<boolean>(false);
+  const [packageValue, setPackageValue] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  console.log("packageValue :", packageValue);
 
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -267,6 +274,7 @@ export default function PricingSection() {
               key={plan.id}
               plan={plan}
               setModalOpened={setModalOpened}
+              setPackageValue={setPackageValue}
             />
           ))}
         </div>
@@ -292,7 +300,11 @@ export default function PricingSection() {
                   paddingTop: plan.recomendation ? 0 : "15px",
                 }}
               >
-                <PricingCard plan={plan} setModalOpened={setModalOpened} />
+                <PricingCard
+                  plan={plan}
+                  setModalOpened={setModalOpened}
+                  setPackageValue={setPackageValue}
+                />
               </div>
             ))}
           </div>
@@ -302,6 +314,7 @@ export default function PricingSection() {
       <DemoRequestModal
         open={modalOpened}
         onClose={() => setModalOpened(false)}
+        packageValue={packageValue}
       />
     </section>
   );
