@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import Navbar from "@/shared/layout/navbar";
 import Footer from "@/shared/layout/footer";
 import { ConfigProvider } from "antd";
+import "animate.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-sans",

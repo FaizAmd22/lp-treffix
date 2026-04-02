@@ -315,6 +315,10 @@ export default function PricingSection() {
         open={modalOpened}
         onClose={() => setModalOpened(false)}
         packageValue={packageValue}
+        productValue={"hrms"}
+        title="Ajukan Demo & Konsultasi HRIS"
+        desc="Isi data Anda untuk mendapatkan demo dan konsultasi software HRIS berbasis AI. Tim kami akan segera menghubungi Anda untuk membantu memilih solusi terbaik bagi absensi, payroll, dan manajemen karyawan perusahaan Anda."
+        submitText="Ajukan"
       />
     </section>
   );

@@ -5,7 +5,7 @@ import ServiceSectionHome from "@/modules/homepage/service-section-home";
 
 export default function EmployeeManagementPage() {
   return (
-    <main>
+    <main className="animate__animated animate__fadeIn">
       <HeroSectionHome />
       <ProductSectionHome />
       <ServiceSectionHome />

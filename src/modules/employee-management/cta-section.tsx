@@ -4,6 +4,7 @@
 import { useState } from "react";
 import AnimatedButton from "../../shared/components/animated-button";
 import DemoRequestModal from "../../shared/components/demo-request-modal";
+import Link from "next/link";
 
 export default function CtaSection() {
   const [modalOpened, setModalOpened] = useState<boolean>(false);
@@ -23,16 +24,20 @@ export default function CtaSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-16 lg:pt-24 pb-16 flex flex-col items-center text-center">
         <p className="text-3xl lg:text-[38px] font-semibold leading-snug m-0">
-          Siap <span className="text-(--primary-color)">Digitalisasi</span>{" "}
-          Sistem HR Perusahaan Anda?
+          Digitalisasi HR Lebih Mudah – Fixwork{" "}
+          <span className="text-(--primary-color)">
+            Tersedia di App Store & Play Store
+          </span>
         </p>
 
-        <div className="w-full lg:w-[60%] mt-5">
+        <div className="w-full mt-5">
           <p className="text-sm lg:text-base text-gray-500 m-0">
-            Mulai gunakan Fixwork sekarang dan rasakan kemudahan mengelola
-            absensi, cuti, payroll, hingga karyawan dalam satu platform
-            terintegrasi. Daftar hari ini dan tingkatkan efisiensi operasional
-            HR perusahaan Anda!
+            Siap digitalisasi sistem HR perusahaan Anda? Gunakan Fixwork untuk
+            mengelola absensi, cuti, payroll, dan data karyawan dalam satu
+            platform terintegrasi yang praktis dan efisien. Kini tersedia di App
+            Store dan Play Store, memudahkan akses kapan saja dan di mana saja.
+            Daftar sekarang dan optimalkan operasional HR perusahaan Anda dengan
+            solusi modern yang cepat, aman, dan scalable.
           </p>
         </div>
 
@@ -47,17 +52,32 @@ export default function CtaSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-6 lg:mt-10">
-          <AnimatedButton onClick={() => setModalOpened(true)}>
-            Hubungi Kami
-          </AnimatedButton>
+        <div className="mt-6 lg:mt-14 flex gap-10">
+          <Link
+            href={
+              "https://play.google.com/store/apps/details?id=com.treffix.qerja&pcampaignid=web_share"
+            }
+            target="_blank"
+          >
+            <img
+              src={"/images/playstore.png"}
+              alt="/playstore"
+              className="w-full h-full object-cover"
+            />
+          </Link>
+
+          <Link
+            href={"https://apps.apple.com/us/app/qerja/id6759553307"}
+            target="_blank"
+          >
+            <img
+              src={"/images/appstore.png"}
+              alt="/appstore"
+              className="w-full h-full object-cover"
+            />
+          </Link>
         </div>
       </div>
-
-      <DemoRequestModal
-        open={modalOpened}
-        onClose={() => setModalOpened(false)}
-      />
     </section>
   );
 }

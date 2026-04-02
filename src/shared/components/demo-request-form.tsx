@@ -26,6 +26,8 @@ interface Props {
   onClose?: () => void;
   type: "home" | "modal";
   packageValue?: string;
+  productValue?: string;
+  submitText?: string;
 }
 
 export default function DemoRequestForm({
@@ -33,6 +35,8 @@ export default function DemoRequestForm({
   onClose,
   type,
   packageValue,
+  productValue,
+  submitText = "Kirim",
 }: Props) {
   const {
     control,
@@ -45,7 +49,7 @@ export default function DemoRequestForm({
       email: "",
       phone: "",
       company: "",
-      product: "",
+      product: productValue ?? "",
       package: packageValue ?? "",
     },
   });
@@ -152,29 +156,31 @@ export default function DemoRequestForm({
         </div>
 
         {/* Product */}
-        <div>
-          <label className="text-sm font-medium">Produk</label>
-          <Controller
-            name="product"
-            control={control}
-            render={({ field }) => (
-              <Select
-                className="w-full py-2!"
-                placeholder="Pilih Produk yang Dibutuhkan"
-                value={field.value || undefined}
-                onChange={field.onChange}
-                onBlur={field.onBlur}
-              >
-                <Option value="hrms">Manajemen Karyawan (HRMS)</Option>
-              </Select>
+        {!productValue && (
+          <div>
+            <label className="text-sm font-medium">Produk</label>
+            <Controller
+              name="product"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  className="w-full py-2!"
+                  placeholder="Pilih Produk yang Dibutuhkan"
+                  value={field.value || undefined}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                >
+                  <Option value="hrms">Manajemen Karyawan (HRMS)</Option>
+                </Select>
+              )}
+            />
+            {errors.product && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.product.message}
+              </p>
             )}
-          />
-          {errors.product && (
-            <p className="text-red-500 text-xs mt-1">
-              {errors.product.message}
-            </p>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Package */}
         <div>
@@ -219,7 +225,7 @@ export default function DemoRequestForm({
               loading={loading}
               className="rounded-full! px-8! py-6! font-semibold! bg-(--primary-color)!"
             >
-              Kirim
+              {submitText}
             </Button>
           </div>
         ) : (
@@ -230,7 +236,7 @@ export default function DemoRequestForm({
               loading={loading}
               className="w-full! rounded-full! py-6! font-semibold! bg-(--primary-color)!"
             >
-              Kirim
+              {submitText}
             </Button>
           </div>
         )}

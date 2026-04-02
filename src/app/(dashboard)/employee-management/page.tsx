@@ -5,7 +5,7 @@ import PricingSection from "@/modules/employee-management/pricing-section";
 
 export default function EmployeeManagementPage() {
   return (
-    <main>
+    <main className="animate__animated animate__fadeIn">
       <HeroSection />
       <FeaturesSection />
       <PricingSection />

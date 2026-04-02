@@ -112,7 +112,7 @@ const features: Feature[] = [
       "Akurasi Data Lebih Tinggi",
       "Proses Onboarding yang Skalabel",
     ],
-    image: "/images/feature-image-7.png",
+    image: "/images/feature-image-6.png",
   },
   {
     id: 7,
@@ -127,7 +127,7 @@ const features: Feature[] = [
       "Riwayat & Data Payroll Lengkap",
       "Pembayaran Gaji Tepat Waktu",
     ],
-    image: "/images/feature-image-6.png",
+    image: "/images/feature-image-7.png",
   },
 ];
 
