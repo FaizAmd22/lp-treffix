@@ -17,10 +17,12 @@ const socmedList = [
 ];
 
 const footerLinks = {
-  Products: [{ label: "Employee Management", href: "/employee-management" }],
+  Products: [
+    { label: "Manajemen Karyawan (HRMS)", href: "/employee-management" },
+  ],
   Company: [
-    { label: "About", href: "/about" },
-    { label: "Careers", href: "/careers" },
+    { label: "Tentang", href: "/about" },
+    { label: "Karir", href: "/careers" },
     { label: "Blog", href: "/blog" },
   ],
 };
@@ -50,8 +52,9 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-400 text-base lg:text-sm leading-relaxed mb-5 m-0">
-              Pioneering AI-Powered IoT Management System Solutions Across
-              Indonesia
+              Smarter Productivity Tracking,
+              <br />
+              powered by AI
             </p>
             <div className="hidden lg:flex items-center gap-3">
               {socmedList.map((item, index) => {
