@@ -26,9 +26,9 @@ export default function HeroSectionHome() {
           </p>
 
           <p className="text-[#BABABA] lg:text-lg px-24 mt-10 lg:mt-5">
-            Tingkatkan kinerja bisnis dengan solusi digital modern yang
-            menghadirkan kemudahan, kontrol, dan efisiensi dalam satu ekosistem
-            terintegrasi.
+            Tingkatkan kinerja bisnis dengan solusi digital modern berbasis AI
+            (Artificial Intelligence) yang menghadirkan kemudahan, kontrol, dan
+            efisiensi dalam satu ekosistem terintegrasi.
           </p>
 
           <div className="mt-28 lg:mt-16">

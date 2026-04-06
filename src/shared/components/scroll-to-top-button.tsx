@@ -38,7 +38,7 @@ export default function ScrollToTopButton() {
       className={`
         fixed bottom-8 right-8 z-50
         w-12 h-12 rounded-full
-        bg-gray-900 text-(--primary-color)
+        bg-[#101010] text-(--primary-color)
         flex items-center justify-center
         cursor-pointer
         transition-all duration-300 ease-in-out

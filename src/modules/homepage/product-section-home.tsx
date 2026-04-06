@@ -51,7 +51,7 @@ export default function ProductSectionHome() {
         <p className="text-3xl lg:text-[38px] font-semibold leading-snug m-0">
           Produk kami menggabungkan{" "}
           <span className="text-(--primary-color)">
-            otomatisasi, analitik, dan IoT
+            AI, otomatisasi, analitik, dan IoT
           </span>{" "}
           untuk meningkatkan kinerja dan efisiensi operasional bisnis.
         </p>
