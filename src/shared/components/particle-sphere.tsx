@@ -58,8 +58,8 @@ function buildParticles(radius: number): Particle[] {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function resolveAnimate(mod: any) {
-  if (typeof mod.animate === "function") return mod.animate; // animejs v4
-  if (typeof mod.default === "function") return mod.default; // animejs v3
+  if (typeof mod.animate === "function") return mod.animate;
+  if (typeof mod.default === "function") return mod.default;
   throw new Error("animejs: tidak menemukan fungsi animate.");
 }
 
@@ -76,18 +76,9 @@ export function ParticleSphere({
   useEffect(() => {
     if (!canvasRef.current) return;
 
-    /*
-     * FIX: TypeScript kehilangan null-narrowing untuk `ctx` di dalam
-     * nested function `draw()` karena control-flow analysis tidak
-     * menembus batas definisi fungsi.
-     *
-     * Solusi: cast ke CanvasRenderingContext2D setelah guard check.
-     * getContext('2d') hanya mengembalikan null jika canvas sudah
-     * punya context berbeda — dalam praktik ini tidak terjadi.
-     */
     const rawCtx = canvasRef.current.getContext("2d");
     if (!rawCtx) return;
-    const ctx = rawCtx as CanvasRenderingContext2D; // non-null, TypeScript-safe
+    const ctx = rawCtx as CanvasRenderingContext2D;
 
     const canvas = canvasRef.current;
     const W = canvas.width;
@@ -116,12 +107,10 @@ export function ParticleSphere({
     }
 
     function draw(angle: number) {
-      // ctx dijamin non-null (CanvasRenderingContext2D) — tidak ada error TS
       ctx.clearRect(0, 0, W, H);
       ctx.fillStyle = "#030912";
       ctx.fillRect(0, 0, W, H);
 
-      // ambient glow
       const ag = ctx.createRadialGradient(CX, CY, 0, CX, CY, radius * 1.5);
       ag.addColorStop(
         0,
@@ -139,7 +128,6 @@ export function ParticleSphere({
       ctx.fillStyle = ag;
       ctx.fillRect(0, 0, W, H);
 
-      // project & sort back-to-front
       const projected = pts
         .map((pt) => {
           const pr = project(pt.ox, pt.oy, pt.oz, angle);
@@ -149,7 +137,6 @@ export function ParticleSphere({
         })
         .sort((a, b) => a.z - b.z);
 
-      // pass 1: wide bloom
       ctx.save();
       ctx.globalCompositeOperation = "lighter";
       projected.forEach((p) => {
@@ -171,7 +158,6 @@ export function ParticleSphere({
         ctx.fill();
       });
 
-      // pass 2: mid glow
       projected.forEach((p) => {
         const a = (0.25 + p.dep * 0.55) * p.br;
         const s = p.sz * p.p * 2.5;
@@ -187,7 +173,6 @@ export function ParticleSphere({
       });
       ctx.restore();
 
-      // pass 3: crisp core
       ctx.shadowBlur = 0;
       projected.forEach((p) => {
         if (p.dep < 0.12) return;

@@ -61,19 +61,14 @@ function getZones(p: number): [number, number, number] {
   return k0.z.map((v, i) => lerp(v, k1.z[i], s)) as [number, number, number];
 }
 
-/*
- * Warna: biru + transparent (bukan biru + hitam)
- * intensity=0 → rgba(69,107,242, 0)  = fully transparent
- * intensity=1 → rgba(69,107,242, 1)  = fully opaque blue
- */
 function toRgb(intensity: number) {
   return `rgba(${BLUE[0]},${BLUE[1]},${BLUE[2]},${intensity.toFixed(4)})`;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function resolveAnimate(mod: any) {
-  if (typeof mod.animate === "function") return mod.animate; // animejs v4
-  if (typeof mod.default === "function") return mod.default; // animejs v3
+  if (typeof mod.animate === "function") return mod.animate;
+  if (typeof mod.default === "function") return mod.default;
   throw new Error(
     "animejs: tidak menemukan fungsi animate. Pastikan animejs v3/v4 terinstall."
   );
@@ -97,15 +92,8 @@ export function RotatingCube({
   const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    // ── Null check di sini hanya untuk early-return runtime ──
     if (!svgRef.current || !gradRef.current) return;
 
-    /*
-     * FIX: TypeScript kehilangan narrowing di dalam `.then()` (async boundary)
-     * dan di dalam nested functions.
-     * Solusi: cast ke non-null type setelah guard check.
-     * Ini aman karena kita sudah memverifikasi non-null di atas.
-     */
     const svg = svgRef.current as SVGSVGElement;
     const grad = gradRef.current as SVGLinearGradientElement;
 
@@ -148,8 +136,6 @@ export function RotatingCube({
       const tick = { progress: 0 };
 
       function onTick() {
-        // svg & grad sudah typed sebagai non-null (SVGSVGElement & SVGLinearGradientElement)
-        // sehingga tidak ada error TS di sini
         const p = tick.progress;
         const deg = -(p * 360);
         const zones = getZones(p);

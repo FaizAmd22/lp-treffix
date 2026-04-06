@@ -93,7 +93,7 @@ function PricingCard({
 
   return (
     <div className="flex flex-col h-full w-full justify-center">
-      {/* Recommended badge — outside card */}
+      {/* Recommended badge */}
       {isRec && (
         <div className="flex justify-center -mb-3 relative z-10">
           <Tag
@@ -106,7 +106,7 @@ function PricingCard({
         </div>
       )}
 
-      {/* Card body — flex-1 so all cards stretch to same height */}
+      {/* Card body */}
       <div
         className={`relative flex flex-col rounded-3xl py-9 px-7 transition-all duration-300 overflow-hidden ${
           isRec ? "shadow-2xl h-full lg:h-162" : "h-full lg:h-153 mt-0 lg:mt-2"

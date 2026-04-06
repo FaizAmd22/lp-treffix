@@ -46,7 +46,6 @@ export default function CtaSection() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="mt-6 lg:mt-14 flex gap-10">
           <Link
             href={

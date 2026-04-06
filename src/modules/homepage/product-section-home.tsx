@@ -119,7 +119,6 @@ function ProductCard({
     >
       {/* Image container */}
       <div className="relative w-full h-auto flex flex-col items-center overflow-hidden rounded-2xl">
-        {/* Wrapper yang kena efek zoom + blur */}
         <div
           className="relative w-full transition-all duration-500"
           style={{
@@ -146,7 +145,6 @@ function ProductCard({
           )}
         </div>
 
-        {/* Hover button overlay — di luar wrapper, tidak kena blur */}
         <div
           className="absolute inset-0 flex items-center justify-center transition-all duration-300"
           style={{ opacity: hovered ? 1 : 0 }}

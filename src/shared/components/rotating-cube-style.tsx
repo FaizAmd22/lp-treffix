@@ -3,13 +3,9 @@
 import { useEffect, useId, useRef } from "react";
 
 export interface CssRotatingCubeProps {
-  /** Sisi kubus dalam pixel */
   cubeSize?: number;
-  /** Durasi satu putaran penuh (ms) */
   rotationDuration?: number;
-  /** Durasi satu siklus perubahan warna (ms) */
   colorDuration?: number;
-  /** Sudut tilt awal sumbu X (deg) */
   tiltX?: number;
   className?: string;
 }
@@ -21,7 +17,7 @@ const COLOR_KEYFRAMES = [
   "#3bdfff",
   "#3bff99",
   "#ffb83b",
-  "#3b63ff", // kembali ke awal → seamless
+  "#3b63ff",
 ];
 
 export function CssRotatingCube({
@@ -50,7 +46,6 @@ export function CssRotatingCube({
     const cube = cubeRef.current;
     if (!cube) return;
 
-    /* inject keyframe CSS */
     const colorStops = COLOR_KEYFRAMES.map((c, i) => {
       const pct = Math.round((i / (COLOR_KEYFRAMES.length - 1)) * 100);
       return `${pct}% { color: ${c}; }`;
