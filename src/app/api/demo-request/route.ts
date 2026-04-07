@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
 
     const response = await fetch(
-      "https://treffix-cms-api.bnurd.com/api/landing/demo-request",
+      "https://treffix-cms-api.bnurd.com/api/v1/landing/demo-request",
       {
         method: "POST",
         headers: {
