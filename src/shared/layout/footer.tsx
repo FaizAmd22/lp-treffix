@@ -16,9 +16,16 @@ const socmedList = [
   },
 ];
 
-const footerLinks = {
+type FooterLink = { label: string; href: string; external?: boolean };
+
+const footerLinks: Record<string, FooterLink[]> = {
   Products: [
     { label: "Manajemen Karyawan (HRMS)", href: "/employee-management" },
+    {
+      label: "Tracker Kendaraan",
+      href: "https://fixtrack.id/",
+      external: true,
+    },
   ],
   Company: [
     { label: "Tentang", href: "/about" },
@@ -85,6 +92,8 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
                       className="text-gray-400 text-base lg:text-sm hover:text-(--primary-color) transition-colors no-underline"
                     >
                       {link.label}

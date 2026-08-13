@@ -18,9 +18,11 @@ export default function ProductSectionHome() {
     },
     {
       title: "Tracker Kendaraan",
-      link: "#",
-      coming_soon: true,
+      link: "https://fixtrack.id/",
+      external: true,
+      // coming_soon: true,
       image: "/images/home-product-02.png",
+      logo: "/logo/fixtrack.svg",
     },
     {
       title: "Warehouse Monitoring",
@@ -103,6 +105,7 @@ function ProductCard({
   item: {
     title: string;
     link: string;
+    external?: boolean;
     coming_soon?: boolean;
     image: string;
     logo?: string;
@@ -135,13 +138,23 @@ function ProductCard({
           />
 
           {item.logo && (
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-              <img
-                src={item.logo}
-                alt={item.title}
-                className="w-37.5 object-contain"
+            <>
+              <div
+                className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0) 100%)",
+                }}
               />
-            </div>
+
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <img
+                  src={item.logo}
+                  alt={item.title}
+                  className="w-37.5 object-contain"
+                />
+              </div>
+            </>
           )}
         </div>
 
@@ -160,7 +173,13 @@ function ProductCard({
               Segera Hadir
             </div>
           ) : (
-            <AnimatedButton onClick={() => router.push(item.link)}>
+            <AnimatedButton
+              onClick={() =>
+                item.external
+                  ? window.open(item.link, "_blank", "noopener,noreferrer")
+                  : router.push(item.link)
+              }
+            >
               Eksplorasi Produk Kami
             </AnimatedButton>
           )}

@@ -6,13 +6,25 @@ import Image from "next/image";
 import { ChevronDown } from "@untitledui/icons";
 import DemoRequestModal from "../components/demo-request-modal";
 
-const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+  children?: NavLink[];
+};
+
+const navLinks: NavLink[] = [
   { label: "Tentang", href: "/about" },
   {
     label: "Produk",
     href: "#",
     children: [
       { label: "Manajemen Karyawan (HRMS)", href: "/employee-management" },
+      {
+        label: "Tracker Kendaraan",
+        href: "https://fixtrack.id/",
+        external: true,
+      },
     ],
   },
   { label: "Blog", href: "/blog" },
@@ -79,6 +91,8 @@ export default function Navbar() {
                         <Link
                           key={child.label}
                           href={child.href}
+                          target={child.external ? "_blank" : undefined}
+                          rel={child.external ? "noopener noreferrer" : undefined}
                           className="block px-4 py-3 text-white hover:bg-(--primary-color)/10 transition-colors no-underline"
                           onClick={() => setOpenDropdown(false)}
                         >
